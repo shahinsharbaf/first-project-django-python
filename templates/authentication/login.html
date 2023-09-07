@@ -1,0 +1,82 @@
+{% extends 'layout.html' %} {% block title %}
+<title>login</title>
+{% endblock %} {% block main %}
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>login</h2>
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>login</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Contact Section ======= -->
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-4">
+          <h2>login</h2>
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="True">&times;</span>
+            </button>
+            {{ message }}
+          </div>
+          {% endfor %}
+
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="mb-3 form-group">
+                <input
+                  type="text"
+                  name="username"
+                  class="form-control"
+                  id="username"
+                  placeholder="username"
+                  required
+                />
+              </div>
+              <div class="mb-2 form-group">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+            </div>
+            <p>forget my <a class="text-danger" href="forget/">password</a></p>
+            <p>
+              dont have an account<a
+                class="text-danger ml-2"
+                href="registration/"
+                >register now</a
+              >
+            </p>
+            <div class="text-center">
+              <button class="btn btn-success" type="submit">login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+</main>
+{% endblock %}
